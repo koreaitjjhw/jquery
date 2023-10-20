@@ -22,4 +22,39 @@ $(document).ready(function () {
       $(this).removeClass("active");
     }
   );
+
+  //toggleClass()
+  $("h4").click(function () {
+    $(this).toggleClass("active");
+  });
+
+  //css()
+  //매개변수가 한개인 경우(게터)
+  let color = $("h3").css("color");
+  console.log(color);
+
+  //매개변수가 두개인 경우(세터)
+  $("h3").css("color", "blue"); //두 번째 매개변수 속성값이 숫자인경우 따옴표 생략
+
+  //매개변수가 객체인 경우(세터)
+  $("h3").css({
+    backgroundColor: "yellow",
+    textDecoration: "underline",
+  });
+
+  //매개변수가 함수인 경우(세터)
+  $("h3").css("font-size", function (index) {
+    //배열된 객체 각각 다른 css를 적용하고 싶을 때 사용
+    return (index + 1) * 20;
+  });
+
+  //매개변수가 객체와 함수를 같이 사용하는 경우(세터)
+  let c = ["red", "green", "blue"];
+  $("h1").css({
+    //동시에 여러개 적용하거나, 배열된 것을 다르게 적용하고 싶을 때 사용
+    backgroundColor: "black",
+    color: function (index) {
+      return c[index];
+    },
+  });
 });
